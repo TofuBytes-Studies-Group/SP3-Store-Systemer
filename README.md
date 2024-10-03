@@ -1,62 +1,78 @@
 # SP3-Store-Systemer: MyDRTV Solution Architecture Report
 
 ## Introduction
-This report outlines the proposed solution architecture and technology stack for the MyDRTV project. The project is aimed at promoting Danish TV and film globally by providing a platform for accessing classic TV programs and films. The solution addresses key functional and non-functional requirements, including high availability, a user rating system, GDPR compliance, and more.
+This report presents the proposed solution architecture and technology stack for the MyDRTV project, a digital transformation initiative for Denmark’s state broadcaster. The platform aims to promote Danish TV and film globally by offering access to a vast collection of old TV programs and films. Key features include user ratings, advanced search, personalized recommendations, and GDPR-compliant user interaction.
+
+The report outlines our systematic approach to selecting the technology stack and architecture, comparing different architectural styles like layered and microservices. The architecture design will be supported by diagrams, including use case, domain model, and sequence diagrams.
 
 ## Project Overview
 
 ### Objective
-The goal of MyDRTV is to provide global access to a large collection of Danish TV programs and films, with the following core features:
-- User accounts and interaction
-- Ratings for TV programs and films
-- Advanced search capabilities by year, title, genre, etc.
-- Personalized recommendations based on user activity
+The MyDRTV platform is designed to provide:
+- Access to a global audience for Danish TV and films.
+- User accounts with rating and interaction features.
+- Advanced search capabilities based on year, title, genre, and other filters.
+- Personalized recommendations through a "More Programs You May Like" feature.
+- High availability and compliance with GDPR for handling personally identifiable information (PII).
 
-### Key Requirements
-- **High Availability:** The platform must be highly available to ensure uninterrupted access to content globally.
-- **Ratings System:** A reliable and interactive ratings system that enhances user engagement and reputation for Danish TV.
-- **GDPR Compliance:** Personally identifiable information (PII) must be protected in compliance with GDPR standards.
-- **Personalization:** A "More Programs You May Like" feature to improve user engagement and retention.
+### Key Functional Requirements
+- **User Interaction:** Account creation, ratings, and conversations on TV programs and films.
+- **Search System:** Advanced search using multiple filters such as year of production, title, and genre.
+- **Personalization:** A recommendation system based on user ratings and interaction.
+- **High Availability:** Ensuring uninterrupted global access to content.
+- **GDPR Compliance:** Secure handling of PII with compliance to European regulations.
 
-## Solution Architecture
+## Architectural Approach
 
-### Technology Stack
-- **Frontend:** [Insert technology here, e.g., React, Vue.js, etc.]
-- **Backend:** [Insert technology here, e.g., Node.js, Django, etc.]
-- **Database:** [Insert technology here, e.g., PostgreSQL, MongoDB, etc.]
-- **Search Engine:** [Insert technology here, e.g., Elasticsearch, Solr, etc.]
-- **Cloud Hosting/Infrastructure:** [Insert technology here, e.g., AWS, Azure, Google Cloud, etc.]
+### Architectural Styles Comparison
+We considered multiple architectural styles for the MyDRTV project. Below is a summary of the criteria used in our comparison:
+After evaluating these criteria, we opted for a **microservices architecture** due to its scalability, resilience, and ability to handle the different subsystems like user accounts, ratings, and content search independently. This also aligns with the project’s high availability requirement.
 
-### System Design
-- **User Accounts & Authentication:** Describe how user accounts, authentication, and ratings will be handled securely.
-- **Search Functionality:** Explain the implementation of advanced search features using various filters like year, genre, and title.
-- **Personalization Features:** Outline the algorithm or approach for generating personalized content recommendations.
-- **GDPR Compliance:** Discuss how PII will be managed securely, including data encryption, consent, and data retention policies.
+## Technology Stack
+
+- **Frontend:** [Frontend technology, e.g., React, Angular]
+- **Backend:** [Backend technology, e.g., Node.js, Django]
+- **Database:** [Database, e.g., PostgreSQL, MongoDB]
+- **Search Engine:** [Search technology, e.g., Elasticsearch]
+- **Recommendation Engine:** [Algorithm or tech for recommendations]
+- **Infrastructure:** Cloud-hosted on [e.g., AWS, Azure] to ensure scalability and high availability.
+
+## System Design
+
+### Subsystems Overview (Bounded Contexts in Domain-Driven Design)
+The system will be decomposed into the following bounded contexts:
+1. **User Management:** Responsible for user accounts, authentication, and handling GDPR compliance.
+2. **Ratings & Interactions:** Manages ratings, comments, and recommendations.
+3. **Search & Content Delivery:** Provides advanced search functionality and efficient content delivery.
+4. **Recommendation Engine:** Delivers personalized recommendations based on user preferences and interactions.
+
+### Key Diagrams
+- **Use Case Diagram:** Shows the main interactions between users and the system.
+- **Domain Model:** Visualizes the main business concepts (e.g., User, Program, Rating).
+- **Sequence Diagram:** Describes interactions between subsystems, such as how user ratings impact recommendations.
 
 ## Non-Functional Requirements
 
 ### High Availability
-- **Redundancy & Failover:** Explain the redundancy and failover mechanisms in place to ensure continuous service availability.
-- **Scalability:** Outline how the system will handle increasing load and traffic, globally.
+- **Redundancy & Failover:** Cloud infrastructure with auto-scaling and load balancing will ensure 99.9% uptime.
+- **Scalability:** Microservices architecture enables horizontal scaling of individual services based on demand.
 
-### Security
-- **Data Protection:** Describe the security measures in place to safeguard personal data, especially concerning GDPR.
-- **User Privacy:** Discuss how user privacy will be ensured, including data anonymization and secure storage.
+### Security & GDPR Compliance
+- **Data Protection:** User PII will be encrypted and stored securely. Regular audits and compliance checks will ensure GDPR adherence.
+- **User Privacy:** Clear user consent for data processing, with tools for data anonymization and deletion upon request.
 
 ### Performance
-- **Response Time:** Discuss how the system will be optimized for fast loading times and search performance.
-- **Load Balancing:** Mention the load balancing strategies to handle a large number of simultaneous users.
+- **Response Time:** The system will be optimized for minimal latency, especially for content search and personalized recommendations.
+- **Load Balancing:** Advanced load balancing will ensure consistent performance during peak times.
 
 ## Risk Management
+
 ### Reputational Risk
-- Explain the importance of a reliable rating system and its impact on user satisfaction and platform credibility.
-  
+- A robust ratings system is critical for user trust and engagement. The architecture ensures accuracy and fairness in ratings and recommendations.
+
 ### Legal and Compliance Risks
-- Highlight the need for GDPR compliance and the potential legal risks associated with mishandling user data.
+- GDPR compliance is non-negotiable. Mismanagement of PII could lead to severe legal repercussions and loss of user trust. Security audits and compliance checks will be a regular part of the development cycle.
 
 ## Conclusion
-Summarize the overall architecture and technology stack, and emphasize how the proposed solution will meet the functional and non-functional requirements while promoting Danish TV and film globally.
-
-## References
-- [Include any references or supporting documents here]
+The proposed microservices architecture and technology stack will meet the high availability, scalability, and user interaction requirements for MyDRTV while ensuring compliance with GDPR regulations. This solution ensures the promotion of Danish TV and films globally through a reliable and engaging platform.
 
