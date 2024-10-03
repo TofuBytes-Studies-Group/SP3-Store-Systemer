@@ -73,5 +73,5 @@ The system will be decomposed into the following bounded contexts:
 - GDPR compliance is non-negotiable. Mismanagement of PII could lead to severe legal repercussions and loss of user trust. Security audits and compliance checks will be a regular part of the development cycle.
 
 ## Conclusion
-The proposed microservices architecture and technology stack will meet the high availability, scalability, and user interaction requirements for MyDRTV while ensuring compliance with GDPR regulations. This solution ensures the promotion of Danish TV and films globally through a reliable and engaging platform.
+
 
