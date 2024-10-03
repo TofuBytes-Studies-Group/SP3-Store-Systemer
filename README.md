@@ -54,7 +54,7 @@ The system will be decomposed into the following bounded contexts:
 
 ### High Availability
 - **Redundancy & Failover:** Cloud infrastructure with auto-scaling and load balancing will ensure 99.9% uptime.
-- **Scalability:** Microservices architecture enables horizontal scaling of individual services based on demand.
+- **Scalability**
 
 ### Security & GDPR Compliance
 - **Data Protection:** User PII will be encrypted and stored securely. Regular audits and compliance checks will ensure GDPR adherence.
