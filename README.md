@@ -25,16 +25,31 @@ The MyDRTV platform is designed to provide:
 ## Architectural Approach
 
 ### Architectural Styles Comparison
-We considered multiple architectural styles for the MyDRTV project. Below is a summary of the criteria used in our comparison:
+We considered multiple architectural styles for the MyDRTV project. Below is a summary of the criteria used in our comparison: 
 
 ## Technology Stack
 
-- **Frontend:** [Frontend technology, e.g., React, Angular]
-- **Backend:** [Backend technology, e.g., Node.js, Django]
-- **Database:** [Database, e.g., PostgreSQL, MongoDB]
-- **Search Engine:** [Search technology, e.g., Elasticsearch]
-- **Recommendation Engine:** [Algorithm or tech for recommendations]
-- **Infrastructure:** Cloud-hosted on [e.g., AWS, Azure] to ensure scalability and high availability.
+- **Frontend:** Typescript React. This choose is made over Javascript becuase we would like strongly typed language and gives better tooling then Javascript. Then React was choosen because it makes coding dynamic applications easier to write and more performant aswell as when we're already familiar with react beforehand.
+
+- **Backend:** We have choosen C# because its obejct-oriented and uses dotnet which gives access to Entity Framework (EF). EF is a object-relation mapper which makes it easier to make CRUD operations in a relational database. Other programming langauges also have object-relation mapper like JPA for Java but we like how easy and intuative EF is to use.
+
+- **Database:** We think PostgreSQL is a suitable choice because it is a relational database and we think i simple to use.
+
+- **Search Engine:** PostgreSQL already has a build in search engine this will be the way we will use to search. But if that is not effecient enough we will make a search engine that suites our needs. 
+
+- **Recommendation Engine:** We will implement an machine learning algorithm that would use these factors for the recommendations:
+    - The interactions the user has with the service ( such as viewing history and how they rated other titles),
+    - Other members with similar tastes and preferences on our service, and
+    - Informaiton about the titles, such as their genre, categories, actors, release year, etc.
+
+    In addition to knowing what they have watches on MyDRTV, to best personalize the recommendations we also consider factors including:
+
+    - the time of day they're watching
+    - the languages your prefer
+    - the device they're watching on, and
+    - how long they've enjoyed a title.
+
+- **Infrastructure:** We will use AWS to hold our infratructure. Using there RDS to host the database and EKS to host pods of the front- and backend. Kubernetes can also insure that the application has all must no down time. AWS was choosen becuase we have used in previous exeperience. 
 
 ## System Design
 
