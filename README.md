@@ -26,7 +26,6 @@ The MyDRTV platform is designed to provide:
 
 ### Architectural Styles Comparison
 We considered multiple architectural styles for the MyDRTV project. Below is a summary of the criteria used in our comparison:
-After evaluating these criteria, we opted for a **microservices architecture** due to its scalability, resilience, and ability to handle the different subsystems like user accounts, ratings, and content search independently. This also aligns with the project’s high availability requirement.
 
 ## Technology Stack
 
