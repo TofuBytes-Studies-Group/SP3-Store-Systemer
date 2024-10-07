@@ -25,7 +25,21 @@ The MyDRTV platform is designed to provide:
 ## Architectural Approach
 
 ### Architectural Styles Comparison
-We considered multiple architectural styles for the MyDRTV project. Below is a summary of the criteria used in our comparison: 
+We considered a few architectural styles for the MyDRTV project.
+
+When looking at the project briefing document, selecting the right architectural approach is challenging. After careful consideration, we decided to go with a **layered architecture** that treats the application like a monolith. The reasoning behind this choice is based on our team’s experience and familiarity with this style. A layered approach allows us to focus on delivering the core features efficiently while maintaining simplicity during the initial stages of development.
+
+The platform is described as a global streaming service for Danish movies and TV shows, designed to reach audiences worldwide. However, given that we anticipate the majority of users will be in Denmark—at least initially—starting with microservices seemed like an unnecessary overhead in terms of cost and complexity. Microservices come with significant operational costs, such as managing multiple services, handling communication overhead, and potentially requiring a dedicated DevOps team. A monolithic, layered architecture reduces these costs, especially if global scaling isn’t an immediate concern.
+
+That said, we recognize the potential for the platform to grow and gain popularity outside Denmark. A monolith might struggle with global performance if this happens, but we plan to extend its life by introducing optimizations like **caching** or improving database performance (using PostgreSQL's JSON support, for example). **Caching** solutions, such as **Redis** or **Memcached**, will be used to optimize data retrieval for high-traffic features like the advanced search or personalized recommendations, ensuring faster response times for users regardless of location.
+
+In addition, we’re designing the system with **modularity** in mind to minimize potential issues with tight coupling. By ensuring clear **separation of concerns** between different layers (Presentation, Business Logic, Data), we can isolate components and make them easier to refactor or even extract into microservices later. For example, we could develop the **recommendation engine** as an independent module, even within the monolith, so that it can scale separately if needed.
+
+To further future-proof the architecture, we’ll consider implementing **event-driven communication** between subsystems. This would allow us to decouple critical services like the rating system and recommendation engine from the core application, making it easier to transition these into microservices later without heavy refactoring. Using an event bus, for instance, would allow different components to communicate asynchronously through events like “user rated a film” or “user watched a title,” which can then trigger other processes such as personalized recommendations.
+
+Finally, we also have the option of **scaling the database** using PostgreSQL’s partitioning or sharding capabilities, should user data or content search volumes increase significantly. With this, the platform can manage large amounts of data efficiently, supporting scalability for global users.
+
+So with all that in mind our conclusion was that the **layered architecture** would provide a manageable, cost-effective foundation for the MyDRTV platform in its initial phase, with clear pathways for growth if the user base expands globally. We acknowledge that there are risks—primarily in terms of performance scaling—but the architecture is well-suited to the initial audience. By focusing on **modularity**, **decoupling**, and **future-proofing** strategies, we ensure flexibility to transition to microservices when the demand justifies it.
 
 ## Technology Stack
 
