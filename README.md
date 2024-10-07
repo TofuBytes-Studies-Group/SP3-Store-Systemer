@@ -29,7 +29,7 @@ We considered multiple architectural styles for the MyDRTV project. Below is a s
 
 ## Technology Stack
 
-- **Frontend:** Typescript React. This choose is made over Javascript becuase we would like strongly typed language and gives better tooling then Javascript. Then React was choosen because it makes coding dynamic applications easier to write and more performant aswell as when we're already familiar with react beforehand.
+- **Frontend:** Typescript React. This choice was made over Javascript because we while we prefer a strongly typed language we also feel it provides better tooling than Javascript. React was chosen as our design library because of how dynamic it makes coding applications, because of our familiarity with the technology. Also out of the box, TypeScript supports JSX and which allows us to get the full React Web support that we want.
 
 - **Backend:** We have choosen C# because its obejct-oriented and uses dotnet which gives access to Entity Framework (EF). EF is a object-relation mapper which makes it easier to make CRUD operations in a relational database. Other programming langauges also have object-relation mapper like JPA for Java but we like how easy and intuative EF is to use.
 
