@@ -35,7 +35,7 @@ We considered multiple architectural styles for the MyDRTV project. Below is a s
 
 - **Database:** We believe PostgreSQL is a suitable choice because it is a relational database and we find it simple to use, Postgres is also known for its scalability and ability to handle large-scale data. It also offers JSON support giving us the flexibility we want combined with a decent community support, making this a dependable choice for managing our data needs we'd say.
 
-- **Search Engine:** PostgreSQL already has a build in search engine this will be the way we will use to search. But if that is not effecient enough we will make a search engine that suites our needs. 
+- **Search Engine:** PostgreSQL already has a built-in full-text search engine, which we plan to use to use for the streaming service. It allows efficient searching throuhg large vollumes of text data, such as movie titles, metadata etc. Supports advanced phrase searching, ranking results by relevance, and filtering by specific fields, which will help users find content accurately and quickly. But if our choice turns out to not be efficient enough we'll explore building a custom search engine that suites our needs. One optimized for movie recommendations or real-time search results.
 
 - **Recommendation Engine:** We will implement an machine learning algorithm that would use these factors for the recommendations:
     - The interactions the user has with the service ( such as viewing history and how they rated other titles),
