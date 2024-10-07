@@ -39,7 +39,7 @@ To further future-proof the architecture, we’ll consider implementing **event-
 
 Finally, we also have the option of **scaling the database** using PostgreSQL’s partitioning or sharding capabilities, should user data or content search volumes increase significantly. With this, the platform can manage large amounts of data efficiently, supporting scalability for global users.
 
-So with all that in mind our conclusion was that the **layered architecture** would provide a manageable, cost-effective foundation for the MyDRTV platform in its initial phase, with clear pathways for growth if the user base expands globally. We acknowledge that there are risks—primarily in terms of performance scaling—but the architecture is well-suited to the initial audience. By focusing on **modularity**, **decoupling**, and **future-proofing** strategies, we ensure flexibility to transition to microservices when the demand justifies it.
+So with all that in mind our **conclusion** was that the **layered architecture** would provide a manageable, cost-effective foundation for the MyDRTV platform in its initial phase, with clear pathways for growth if the user base expands globally. We acknowledge that there are risks—primarily in terms of performance scaling—but the architecture is well-suited to the initial audience. By focusing on **modularity**, **decoupling**, and **future-proofing** strategies, we ensure flexibility to transition to microservices when the demand justifies it.
 
 ## Technology Stack
 
