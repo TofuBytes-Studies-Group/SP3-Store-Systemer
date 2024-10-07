@@ -1,6 +1,6 @@
 # SP3-Store-Systemer: MyDRTV Solution Architecture Report
 
-## Gruppe: Jamie, Markus Isak & Helena
+## Group Members: Jamie, Markus Isak & Helena
 
 ## Introduction
 This report presents the proposed solution architecture and technology stack for the MyDRTV project, a digital transformation initiative for Denmark’s state broadcaster. The platform aims to promote Danish TV and film globally by offering access to a vast collection of old TV programs and films. Key features include user ratings, advanced search, personalized recommendations, and GDPR-compliant user interaction.
