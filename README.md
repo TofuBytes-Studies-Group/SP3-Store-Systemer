@@ -49,7 +49,7 @@ We considered multiple architectural styles for the MyDRTV project. Below is a s
     - the device they're watching on, and
     - how long they've enjoyed a title.
 
-- **Infrastructure:** We will use AWS to hold our infratructure. Using there RDS to host the database and EKS to host pods of the front- and backend. Kubernetes can also insure that the application has all must no down time. AWS was choosen becuase we have used in previous exeperience. 
+- **Infrastructure:** We will use AWS for our infratructure. Utilizing their RDS to host the database and EKS to host pods of the front- and backend. Kubernetes will also ensure that the application experiences minimal to no down time. AWS was chosen based on our previous exeperience with the platform. 
 
 ## System Design
 
