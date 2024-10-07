@@ -63,16 +63,17 @@ So with all that in mind our **conclusion** was that the **layered architecture*
     - the device they're watching on, and
     - how long they've enjoyed a title.
 
-- **Infrastructure:** We will use AWS for our infratructure. Utilizing their RDS to host the database and EKS to host pods of the front- and backend. Kubernetes will also ensure that the application experiences minimal to no down time. AWS was chosen based on our previous exeperience with the platform. 
+- **Infrastructure:** We will use AWS for our infratructure. Utilizing their RDS to host the database and EKS to host pods of the front- and backend. Kubernetes will also ensure that the application experiences minimal to no downtime and also allows auto-scaling and ensures fault tolerance, enabling smooth operation even during traffic spikes. AWS was chosen based on our previous exeperience with the platform.
 
 ## System Design
+The system design focuses on modularity and scalability while maintaining simplicity in its initial phase. Below are some key subsystems and additional considerations for the MyDRTV architecture:
 
 ### Subsystems Overview (Bounded Contexts in Domain-Driven Design)
 The system will be decomposed into the following bounded contexts:
-1. **User Management:** Responsible for user accounts, authentication, and handling GDPR compliance.
-2. **Ratings & Interactions:** Manages ratings, comments, and recommendations.
-3. **Search & Content Delivery:** Provides advanced search functionality and efficient content delivery.
-4. **Recommendation Engine:** Delivers personalized recommendations based on user preferences and interactions.
+1. **User Management:** This subsystem will handle user account creation, authentication, and GDPR-compliant user data management. Features include user registration, login/logout, and secure data storage.
+2. **Ratings & Interactions:** This bounded context will manage user ratings, comments, and user-generated content related to programs and films. It will also interact closely with the recommendation engine, feeding data to improve personalized suggestions.
+3. **Search & Content Delivery:** This subsystem will facilitate advanced search capabilities. Using PostgreSQL’s full-text search, users can quickly find programs based on various filters. In terms of content delivery, this subsystem will optimize the delivery pipeline, leveraging caching mechanisms to reduce latency for users globally.
+4. **Recommendation Engine:** This being if we end up having to build our own engine. A dedicated context(an ordered sequence of properties that define an environment for the objects resident inside it) would focus on generating personalized recommendations based on user behavior. While this is part of the monolithic setup initially, its modular design should ensure that it can scale independently if necessary. The engine will process events like user ratings or viewing history to update recommendations in near real-time.
 
 ### Key Diagrams
 - **Use Case Diagram:** Shows the main interactions between users and the system.
@@ -93,8 +94,6 @@ The system will be decomposed into the following bounded contexts:
 - **Response Time:** The system will be optimized for minimal latency, especially for content search and personalized recommendations.
 - **Load Balancing:** Advanced load balancing will ensure consistent performance during peak times.
 
-## Risk Management
-
 ### Reputational Risk
 - A robust ratings system is critical for user trust and engagement. The architecture ensures accuracy and fairness in ratings and recommendations.
 
@@ -102,5 +101,11 @@ The system will be decomposed into the following bounded contexts:
 - GDPR compliance is non-negotiable. Mismanagement of PII could lead to severe legal repercussions and loss of user trust. Security audits and compliance checks will be a regular part of the development cycle.
 
 ## Conclusion
+The proposed solution for MyDRTV adopts a layered architecture, providing a cost-effective and flexible foundation for the platform's initial launch. While a monolithic architecture may have its limitations when scaling globally, we have carefully considered strategies for future-proofing the system, including caching, modular design, and the potential transition to microservices.
 
+The technology stack—featuring TypeScript React for the frontend, C# and .NET for the backend, PostgreSQL for the database, and AWS for infrastructure—provides a robust, familiar environment for the development team, ensuring efficient delivery of core features like user interaction, ratings, and search functionality.
+
+The system is designed with GDPR compliance in mind, ensuring secure management of user data from the outset. The planned use of machine learning algorithms for personalized recommendations and the modular nature of subsystems like the recommendation engine will enable MyDRTV to grow and adapt as its user base expands, potentially beyond Denmark.
+
+In conclusion, this architecture sets the stage for a flexible, scalable platform that can evolve with the demands of its users, while maintaining performance, security, and cost-effectiveness during the early stages of deployment. The strategic use of modularity and cloud-based infrastructure will enable the platform to scale efficiently when the time comes.
 
