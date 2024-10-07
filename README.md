@@ -25,16 +25,31 @@ The MyDRTV platform is designed to provide:
 ## Architectural Approach
 
 ### Architectural Styles Comparison
-We considered multiple architectural styles for the MyDRTV project. Below is a summary of the criteria used in our comparison:
+We considered multiple architectural styles for the MyDRTV project. Below is a summary of the criteria used in our comparison: 
 
 ## Technology Stack
 
-- **Frontend:** [Frontend technology, e.g., React, Angular]
-- **Backend:** [Backend technology, e.g., Node.js, Django]
-- **Database:** [Database, e.g., PostgreSQL, MongoDB]
-- **Search Engine:** [Search technology, e.g., Elasticsearch]
-- **Recommendation Engine:** [Algorithm or tech for recommendations]
-- **Infrastructure:** Cloud-hosted on [e.g., AWS, Azure] to ensure scalability and high availability.
+- **Frontend:** Typescript React. This choice was made over Javascript because we while we prefer a strongly typed language we also feel it provides better tooling than Javascript. React was chosen as our design library because of how dynamic it makes coding applications, because of our familiarity with the technology. Also out of the box, TypeScript supports JSX and which allows us to get the full React Web support that we want.
+
+- **Backend:** We chose C# because it's object-oriented and utilizes .NET which provides access to Entity Framework (EF). EF is an object-relational mapper (ORM) that simplifies performing CRUD operations on a relational database. While other programming langauges also offer the use of ORMs, such as JPA for Java, We prefer EF for its ease of use and intuitive design.
+
+- **Database:** We believe PostgreSQL is a suitable choice because it is a relational database and we find it simple to use, Postgres is also known for its scalability and ability to handle large-scale data. It also offers JSON support giving us the flexibility we want combined with a decent community support, making this a dependable choice for managing our data needs we'd say.
+
+- **Search Engine:** PostgreSQL already has a built-in full-text search engine, which we plan to use to use for the streaming service. It allows efficient searching throuhg large vollumes of text data, such as movie titles, metadata etc. Supports advanced phrase searching, ranking results by relevance, and filtering by specific fields, which will help users find content accurately and quickly. But if our choice turns out to not be efficient enough we'll explore building a custom search engine that suites our needs. One optimized for movie recommendations or real-time search results.
+
+- **Recommendation Engine:** We will implement an machine learning algorithm that would use these factors for the recommendations:
+    - The interactions the user has with the service ( such as viewing history and how they rated other titles),
+    - Other members with similar tastes and preferences on our service, and
+    - Informaiton about the titles, such as their genre, categories, actors, release year, etc.
+
+    In addition to knowing what they have watches on MyDRTV, to best personalize the recommendations we also consider factors including:
+
+    - the time of day they're watching
+    - the languages your prefer
+    - the device they're watching on, and
+    - how long they've enjoyed a title.
+
+- **Infrastructure:** We will use AWS for our infratructure. Utilizing their RDS to host the database and EKS to host pods of the front- and backend. Kubernetes will also ensure that the application experiences minimal to no down time. AWS was chosen based on our previous exeperience with the platform. 
 
 ## System Design
 
