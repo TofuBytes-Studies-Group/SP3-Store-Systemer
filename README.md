@@ -76,9 +76,55 @@ The system will be decomposed into the following bounded contexts:
 4. **Recommendation Engine:** This being if we end up having to build our own engine. A dedicated context(an ordered sequence of properties that define an environment for the objects resident inside it) would focus on generating personalized recommendations based on user behavior. While this is part of the monolithic setup initially, its modular design should ensure that it can scale independently if necessary. The engine will process events like user ratings or viewing history to update recommendations in near real-time.
 
 ### Key Diagrams
-- **Use Case Diagram:** Shows the main interactions between users and the system.
-- **Domain Model:** Visualizes the main business concepts (e.g., User, Program, Rating).
-- **Sequence Diagram:** Describes interactions between subsystems, such as how user ratings impact recommendations.
+- **Domain Model:** 
+```mermaid
+classDiagram
+    class User 
+    class Program 
+    class Rating 
+    class Recommendation 
+    class Favorite
+
+    User "1" --> "0..*" Rating 
+    User "1" --> "0..*" Recommendation 
+    User "1" --> "0..*" Favorite 
+
+    Rating "0..*" --> "1" Program
+    Recommendation "0..*" --> "1" Program
+    Favorite "0..*" --> "1" Program
+```
+
+- **Architectural Diagram:**
+```mermaid
+  graph TD
+    subgraph Presentation Layer
+        A[User Interface]
+    end
+
+    subgraph Application Layer
+        B[API Gateway]
+        C[Business Logic Layer]
+        D[Recommendation Engine]
+        E[Search Service]
+        F[Rating & Interaction Service]
+    end
+
+    subgraph Data Layer
+        G[(PostgreSQL Database)]
+        H[(Cache: Redis)]
+    end
+
+    A -->|REST / GraphQL| B
+    B --> C
+    C --> D
+    C --> E
+    C --> F
+    D --> G
+    E --> G
+    F --> G
+    E --> H
+    F --> H
+  ```
 
 ## Non-Functional Requirements
 
