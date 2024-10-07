@@ -33,7 +33,7 @@ We considered multiple architectural styles for the MyDRTV project. Below is a s
 
 - **Backend:** We chose C# because it's object-oriented and utilizes .NET which provides access to Entity Framework (EF). EF is an object-relational mapper (ORM) that simplifies performing CRUD operations on a relational database. While other programming langauges also offer the use of ORMs, such as JPA for Java, We prefer EF for its ease of use and intuitive design.
 
-- **Database:** We think PostgreSQL is a suitable choice because it is a relational database and we think i simple to use.
+- **Database:** We believe PostgreSQL is a suitable choice because it is a relational database and we find it simple to use, Postgres is also known for its scalability and ability to handle large-scale data. It also offers JSON support giving us the flexibility we want combined with a decent community support, making this a dependable choice for managing our data needs we'd say.
 
 - **Search Engine:** PostgreSQL already has a build in search engine this will be the way we will use to search. But if that is not effecient enough we will make a search engine that suites our needs. 
 
